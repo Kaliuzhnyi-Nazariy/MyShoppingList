@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Madimi+One&display=swap");
+@import "tailwindcss";
+
+body {
+  font-family: "Madimi One", Arial, Helvetica, sans-serif;
+}
+
+[data-theme="light"] {
+  --background: #ffffff;
+  --text: #333333;
+  --primary: #4a90e2;
+  --accent: #50e3c2;
+  --surface: #f5f5f5;
+}
+
+[data-theme="dark"] {
+  --background: #121212;
+  --text: #f5f5f5;
+  --primary: #00bcd4;
+  --accent: #ff4081;
+  --surface: #2c2c2c;
+}
+
+[data-theme="colorful"] {
+  --background: #fff8e7;
+  --text: #2d3436;
+  --primary: #a29bfe;
+  --accent: #ffb6b9;
+  --surface: #fceff9;
+}
