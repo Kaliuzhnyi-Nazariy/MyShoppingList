@@ -28,3 +28,12 @@ body {
   --accent: #ffb6b9;
   --surface: #fceff9;
 }
+
+h2 {
+  font-size: 12px;
+}
+
+p {
+  font-size: 8px;
+  color: var(--text);
+}
