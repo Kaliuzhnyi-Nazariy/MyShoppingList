@@ -59,7 +59,7 @@ const ChoseTheme = () => {
       </button>
 
       {isOpenMenu ? (
-        <ul className="absolute right-0 flex flex-col">
+        <ul className="absolute right-0 flex flex-col z-[5]">
           {themeList.map((t, index) => {
             return (
               <li key={index}>

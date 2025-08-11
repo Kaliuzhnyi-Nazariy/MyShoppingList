@@ -46,7 +46,7 @@ const ChoseLanguage = () => {
         <span className="opacity-50 ">▼</span>
       </button>
       {isOpenMenu && (
-        <ul className="absolute right-0">
+        <ul className="absolute right-0 z-[5]">
           {langToChose.map((l, index) => {
             return (
               <li key={index}>
