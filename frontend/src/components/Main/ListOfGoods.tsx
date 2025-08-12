@@ -18,7 +18,7 @@ const ListOfGoods = () => {
   const { language } = lContext;
 
   return (
-    <div className="w-full  flex flex-col flex-1 items-center px-5">
+    <div className="w-full  flex flex-col flex-1 items-center px-5 min-[768px]:px-10 min-[1440px]:px-20">
       {goods.length == 0 && (
         <div className=" justify-center">
           <p className="opacity-50 ">
@@ -39,18 +39,18 @@ const ListOfGoods = () => {
       )}
       {goods.length > 0 && (
         <>
-          <button className="ml-auto mt-4 opacity-50">
+          <button className="ml-auto mt-4 text-[var(--text)]/50">
             {language == "eng"
               ? "+ Add to list"
               : language == "deu"
               ? "+ Zur Liste hinzufügen"
               : "+ Dodać do listy"}
           </button>
-          <ul className=" mt-4 flex flex-col gap-2.5">
+          <ul className="w-full mt-4 flex flex-col gap-2.5 min-[768px]:gap-6 min-[1440px]:gap-10 ">
             {goods.map((g) => {
               return (
                 <li
-                  className="h-10 w-[280px] bg-[var(--surface)] text-[var(--text)] px-2 py-1 flex justify-between "
+                  className="h-10  min-w-[280px] bg-[var(--surface)] text-[var(--text)] px-2 py-1 flex justify-between min-[768px]:h-[60px] min-[1440px]:h-20 "
                   key={g.id}
                 >
                   <div className="">
@@ -69,3 +69,6 @@ const ListOfGoods = () => {
 };
 
 export default ListOfGoods;
+
+// className =
+//   "h-10 w-[280px] bg-[var(--surface)] text-[var(--text)] px-2 py-1 flex justify-between ";
