@@ -33,7 +33,7 @@ const ChoseLanguage = () => {
   return (
     <div className="relative">
       <button
-        className="text-[var(--primary)] relative"
+        className="text-[var(--primary)] relative min-[768px]:text-[20px] min-[1440px]:text-[28px] "
         onClick={() => {
           if (!isOpenMenu) {
             openMenu();
@@ -42,8 +42,8 @@ const ChoseLanguage = () => {
           }
         }}
       >
-        <span className="">{language}</span>
-        <span className="opacity-50 ">▼</span>
+        <span className="text-[var(--primary)]">{language}</span>
+        <span className="text-[var(--primary)]/50 ">▼</span>
       </button>
       {isOpenMenu && (
         <ul className="absolute right-0 z-[5]">
@@ -51,7 +51,7 @@ const ChoseLanguage = () => {
             return (
               <li key={index}>
                 <button
-                  className={`w-20 px-2 py-1 flex
+                  className={`w-20 px-2 py-1 min-[768px]:w-24 min-[1440px]:w-28 min-[1440px]:px-3 min-[1440px]:py-2 flex
                 ${
                   language == (Object.keys(languages)[index] as Languages)
                     ? "text-[var(--background)] bg-[var(--primary)]"

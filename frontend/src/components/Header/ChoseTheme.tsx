@@ -45,7 +45,7 @@ const ChoseTheme = () => {
   return (
     <div className="relative">
       <button
-        className="flex items-center h-full px-2 "
+        className="flex items-center h-full px-2 min-[768px]:gap-1 min-[1440px]:gap-2 "
         onClick={() => {
           if (isOpenMenu) {
             closeMenu();
@@ -54,8 +54,10 @@ const ChoseTheme = () => {
           }
         }}
       >
-        <span className="size-2 bg-[var(--primary)] rounded-full "></span>{" "}
-        <span className="text-[var(--primary)]/50 ">▼</span>
+        <span className="size-2 min-[768px]:size-4 min-[1440px]:size-6 bg-[var(--primary)] rounded-full "></span>{" "}
+        <span className="text-[var(--primary)]/50 min-[768px]:text-[20px] min-[1440px]:text-[28px] ">
+          ▼
+        </span>
       </button>
 
       {isOpenMenu ? (
@@ -64,7 +66,7 @@ const ChoseTheme = () => {
             return (
               <li key={index}>
                 <button
-                  className={`w-[100px] px-2 py-1 flex ${
+                  className={`w-[100px] px-2 py-1 min-[768px]:w-[120px] min-[1440px]:px-3 min-[1440px]:py-2 flex ${
                     theme == t
                       ? "text-[var(--background)] bg-[var(--primary)]"
                       : "text-[var(--primary)] bg-[var(--surface)]"
