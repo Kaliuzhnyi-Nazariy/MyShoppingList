@@ -1,7 +1,10 @@
 import { Pool } from "pg";
 const dotenv = require("dotenv");
+const path = require("path");
 
-dotenv.config();
+dotenv.config({
+  path: path.resolve(__dirname, "../.env"),
+});
 
 const { DB_HOST, DB_PORT, DB_PASSWORD, DB_USER, DB_DATABASE } = process.env;
 
