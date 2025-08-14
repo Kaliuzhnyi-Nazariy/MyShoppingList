@@ -10,10 +10,6 @@ function App() {
       className="min-h-screen w-full bg-[var(--background)] flex flex-col"
       data-theme={chosenTheme?.theme}
     >
-      {/* <div
-      className="min-h-screen w-full bg-[var(--background)]"
-      data-theme={"dark"}
-    > */}
       <Header />
       <ListOfGoods />
     </div>
