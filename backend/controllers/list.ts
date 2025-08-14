@@ -4,8 +4,8 @@ import { ListItem } from "../types";
 const pool = require("../lib/db.ts");
 
 const getAllList = async (req: Request, res: Response) => {
-  const data = await pool.query("SELECT * FROM shopping_list");
-  return res.status(200).json({ data: data.rows });
+  const data = await pool.query("SELECT * FROM shopping_list ORDER BY id ASC");
+  return res.status(200).json(data.rows);
 };
 
 const getOneItem = async (req: Request, res: Response) => {
@@ -16,7 +16,7 @@ const getOneItem = async (req: Request, res: Response) => {
   if (data.rows.length == 0) {
     return res.status(404).json({ message: "That item is not exist!" });
   }
-  return res.status(200).json({ data: data.rows });
+  return res.status(200).json(data.rows[0]);
 };
 
 const addTOList = async (req: Request<{}, {}, ListItem>, res: Response) => {
@@ -31,7 +31,7 @@ const addTOList = async (req: Request<{}, {}, ListItem>, res: Response) => {
     VALUES($1, $2, $3) RETURNING * `,
     [nameOfGood, description, store]
   );
-  return res.status(201).json({ data: data.rows[0] });
+  return res.status(201).json(data.rows[0]);
 };
 
 const updateListItem = async (
@@ -48,7 +48,7 @@ const updateListItem = async (
     `UPDATE shopping_list SET good = $1, description = $2, store = $3 WHERE id = ${id} RETURNING * `,
     [nameOfGood, description, store]
   );
-  return res.status(200).json({ data: data.rows[0] });
+  return res.status(200).json(data.rows[0]);
 };
 
 const deleteListItem = async (req: Request, res: Response) => {
@@ -61,7 +61,7 @@ const deleteListItem = async (req: Request, res: Response) => {
     return res.status(404).json({ message: "That item is not exist!" });
   }
 
-  return res.status(200).json({ data: data.rows[0] });
+  return res.status(200).json(data.rows[0]);
 };
 
 export default {
