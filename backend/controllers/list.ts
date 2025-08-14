@@ -31,7 +31,7 @@ const addTOList = async (req: Request<{}, {}, ListItem>, res: Response) => {
     VALUES($1, $2, $3) RETURNING * `,
     [nameOfGood, description, store]
   );
-  return res.status(200).json({ data: data.rows[0] });
+  return res.status(201).json({ data: data.rows[0] });
 };
 
 const updateListItem = async (
