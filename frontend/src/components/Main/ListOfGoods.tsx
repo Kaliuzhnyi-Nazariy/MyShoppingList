@@ -38,10 +38,10 @@ const ListOfGoods = () => {
     );
 
   return (
-    <div className="w-full  flex flex-col flex-1 items-center px-5 min-[768px]:px-10 min-[1440px]:px-20">
+    <div className="w-full flex flex-col flex-1 items-center px-5 min-[768px]:px-10 min-[1440px]:px-20">
       {data.length == 0 && !isLoading && (
-        <div className=" justify-center">
-          <p className="opacity-50 ">
+        <div className=" justify-center flex flex-col flex-1 text-[var(--text)]">
+          <p className="opacity-50 text-[18px] min-[768px]:text-2xl min-[1440px]:text-[28px] text-center ">
             {language == "eng"
               ? "There are no goods in the list."
               : language == "deu"
@@ -49,7 +49,7 @@ const ListOfGoods = () => {
               : "W liście nie ma żadnych  towarów."}
           </p>
           <button
-            className="bg-[var(--accent)] px-6 py-1 rounded-[10px] mt-3 border border-transparent hover:border-[var(--accent)] transition-colors hover:bg-transparent focus:outline focus:outline-[var(--accent)] focus:bg-transparent duration-300"
+            className="bg-[var(--accent)] w-auto self-center px-6 py-1 rounded-[10px] mt-3 min-[768px]:mt-4 min-[1440px]:mt-[54px] border border-transparent hover:border-[var(--accent)] transition-colors hover:bg-transparent focus:outline focus:outline-[var(--accent)] focus:bg-transparent duration-300 min-[768px]:px-[18px] min-[768px]:py-2 min-[1440px]:px-6 min-[1440px]:py-1.5 "
             onClick={() => {
               if (document && document.getElementById("add_product_modal")) {
                 (
@@ -71,7 +71,7 @@ const ListOfGoods = () => {
       {data.length > 0 && (
         <>
           <button
-            className="ml-auto mt-4 text-[var(--text)]/50"
+            className="ml-auto mt-4 text-[var(--text)]/50 text-[12px] min-[768px]:text-[18px] "
             onClick={() => {
               if (document && document.getElementById("add_product_modal")) {
                 (
@@ -92,7 +92,7 @@ const ListOfGoods = () => {
             {data.map((g: ListItemDB) => {
               return (
                 <li
-                  className="h-10  min-w-[280px] bg-[var(--surface)] text-[var(--text)] px-2 py-1 flex justify-between min-[768px]:h-[60px] min-[1440px]:h-20 "
+                  className="h-10  min-w-[280px] bg-[var(--surface)] text-[var(--text)] px-2 py-1 flex justify-between min-[768px]:h-[60px] min-[1440px]:h-20 min-[768px]:py-2 min-[768px]:px-5 min-[1440px]:px-[18px] min-[1440px]:py-2.5 "
                   key={g.id}
                   onClick={() => {
                     (
@@ -103,11 +103,21 @@ const ListOfGoods = () => {
                     setDataToUpdate(g);
                   }}
                 >
-                  <div className="">
-                    <h2>{g.good}</h2>
-                    {g.description ? <p>{g.description}</p> : <></>}
+                  <div className="flex flex-col justify-between">
+                    <h2 className="max-[767px]:text-[12px] min-[768px]:text-[18px] min-[1440px]:text-[20px]">
+                      {g.good}
+                    </h2>
+                    {g.description ? (
+                      <p className="text-[8px] min-[768px]:text-[12px] min-[1440px]:text-[16px] ">
+                        {g.description}
+                      </p>
+                    ) : (
+                      <></>
+                    )}
                   </div>
-                  <p>{g.store}</p>
+                  <p className="text-[8px] min-[768px]:text-[18px]">
+                    {g.store}
+                  </p>
                 </li>
               );
             })}
