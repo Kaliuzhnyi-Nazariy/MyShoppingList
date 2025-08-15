@@ -82,34 +82,45 @@ const UpdateModal = ({ data }: { data: ListItemDB }) => {
     },
   });
 
+  const title = () => {
+    return language == "pl"
+      ? "AKTUALIZACJA"
+      : language == "eng"
+      ? "Update"
+      : "AKTUALISIERUNG";
+  };
+
   return (
     <dialog id="update_modal" className="modal">
-      <div className="modal-box w-[280px] h-[400px] bg-[var(--background)] flex flex-col items-center justify-center py-[30px] px-[15px]">
-        <h3 className="text-[18px] uppercase">add good to list</h3>
+      <div className="modal-box w-[280px] h-[400px] bg-[var(--background)] text-[var(--text)] flex flex-col items-center justify-center py-[30px] px-[15px] min-[768px]:min-w-[575px] min-[768px]:h-[645px] min-[768px]:px-10 min-[768px]:py-[45px] min-[1440px]:min-w-[1200px] min-[1440px]:h-[365px] min-[1440px]:px-[60px] min-[1440px]:py-5  ">
         <form
-          className="flex flex-col items-center gap-3"
+          className="flex flex-col items-center gap-3 min-[768px]:gap-y-6 min-[1440px]:grid min-[1440px]:grid-cols-2 min-[1440px]:grid-rows-[repeat(4,auto)] min-[1440px]:gap-x-[90px] "
           onSubmit={(e) => {
             e.preventDefault();
             console.log(formData);
             mutate(formData);
           }}
         >
+          <h3 className="text-[18px] uppercase">{title()}</h3>
           <InputModal
             label="Name of good"
             placeholder="name of good"
             name="nameOfGood"
             value={formData.nameOfGood}
             onChange={setData}
+            language={language}
           />
           <InputModal
             label="Description"
             placeholder="Description"
             isTextarea
-            textareaWidth=""
-            textareaHeight="h-[90px]"
+            textareaWidth="min-[768px]:w-[495px]"
+            textareaHeight="h-[90px] min-[768px]:h-[145px] min-[1440px]:h-[223px] "
             name="description"
             value={formData.description}
             onChange={setData}
+            extraClass="col-2 row-start-1 row-end-4"
+            language={language}
           />
           <InputModal
             label="Store"
@@ -117,17 +128,18 @@ const UpdateModal = ({ data }: { data: ListItemDB }) => {
             name="store"
             value={formData.store}
             onChange={setData}
+            language={language}
           />
           {isPending ? (
             <div className="loading loading-spinner loading-sm"></div>
           ) : (
-            <ul className="flex gap-5">
-              <li>
+            <ul className="flex gap-5 mt-1 min-[1440px]:m-0 min-[1440px]:col-span-2 min-[1440px]:row-4 min-[1440px]:grid min-[1440px]:grid-cols-2  ">
+              <li className="min-[1440px]:justify-self-center">
                 {isPendingDelete ? (
                   <span className="loading loading-spinner loading-sm"></span>
                 ) : (
                   <button
-                    className="bg-[var(--primary)] w-[114px] h-8 rounded-[10px] border border-transparent hover:border-[var(--accent)] transition-colors hover:bg-transparent focus:outline focus:outline-[var(--accent)] focus:bg-transparent duration-300 mt-4 disabled:opacity-50"
+                    className="bg-[var(--primary)] w-[114px] h-8 rounded-[10px] border border-transparent hover:border-[var(--accent)] transition-colors hover:bg-transparent focus:outline focus:outline-[var(--accent)] focus:bg-transparent duration-300 disabled:opacity-50 min-[768px]:w-[240px] min-[768px]:h-12 min-[768px]:text-2xl] min-[1440px]:w-[224px] min-[1440px]:h-[36px] min-[1440px]:text-[18px] min-[1440px]:col-end-1 "
                     disabled={!formData.nameOfGood || !formData.store}
                     onClick={() => deleteMutation()}
                   >
@@ -139,9 +151,9 @@ const UpdateModal = ({ data }: { data: ListItemDB }) => {
                   </button>
                 )}
               </li>
-              <li>
+              <li className="min-[1440px]:justify-self-center">
                 <button
-                  className="bg-[var(--accent)] w-[114px] h-8 rounded-[10px] border border-transparent hover:border-[var(--accent)] transition-colors hover:bg-transparent focus:outline focus:outline-[var(--accent)] focus:bg-transparent duration-300 mt-4 disabled:opacity-50"
+                  className="bg-[var(--accent)] w-[114px] h-8 rounded-[10px] border border-transparent hover:border-[var(--accent)] transition-colors hover:bg-transparent focus:outline focus:outline-[var(--accent)] focus:bg-transparent duration-300 disabled:opacity-50 min-[768px]:w-[240px] min-[768px]:h-12 min-[768px]:text-2xl] min-[1440px]:w-[224px] min-[1440px]:h-[36px] min-[1440px]:text-[18px] min-[1440px]:col-start-2 "
                   disabled={!formData.nameOfGood || !formData.store}
                 >
                   {language == "eng"
