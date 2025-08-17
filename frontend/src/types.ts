@@ -11,3 +11,14 @@ export interface ListItemDB {
   description: string;
   store: string;
 }
+
+export interface IUser {
+  id?: number;
+  name: string;
+  email: string;
+  password: string;
+}
+
+export interface AddUser extends IUser {
+  confirmPassword: string;
+}
