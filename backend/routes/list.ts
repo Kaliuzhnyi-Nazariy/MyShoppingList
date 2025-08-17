@@ -1,16 +1,17 @@
 import { Router } from "express";
 import listCtrl from "../controllers/list";
+import isAuthenticated from "../middleware";
 
 const router = Router();
 
-router.get("/list", listCtrl.getAllList);
+router.get("/list", isAuthenticated, listCtrl.getAllList);
 
-router.get("/list/:id", listCtrl.getOneItem);
+router.get("/list/:id", isAuthenticated, listCtrl.getOneItem);
 
-router.post("/list", listCtrl.addTOList);
+router.post("/list", isAuthenticated, listCtrl.addTOList);
 
-router.put("/list/:id", listCtrl.updateListItem);
+router.put("/list/:id", isAuthenticated, listCtrl.updateListItem);
 
-router.delete("/list/:id", listCtrl.deleteListItem);
+router.delete("/list/:id", isAuthenticated, listCtrl.deleteListItem);
 
 export default router;
