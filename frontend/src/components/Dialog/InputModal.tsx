@@ -68,7 +68,7 @@ const InputModal = ({
     <div
       className={`flex flex-col gap-2 w-[250px] min-[768px]:w-[495px] ${extraClass}`}
     >
-      <label className="text-[12px] min-[768px]:text-[18px] min-[1440px]:text-[20px] ">
+      <label className="text-[12px] min-[768px]:text-[18px] min-[1440px]:text-[20px] opacity-50 group-hover:opacity-100 group-focus-within:opacity-100 ">
         {labelFinal()}
       </label>
       {isTextarea ? (
