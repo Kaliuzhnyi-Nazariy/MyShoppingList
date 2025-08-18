@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import Header from "./components/Header/Header";
 import { themeContext } from "./Contexts/themeContext";
+import Signup from "./Auth/Signup/Signup";
+import Header from "./components/Header/Header";
 import ListOfGoods from "./components/Main/ListOfGoods";
 
 function App() {
@@ -10,8 +11,9 @@ function App() {
       className="min-h-screen w-full bg-[var(--background)] flex flex-col"
       data-theme={chosenTheme?.theme}
     >
-      <Header />
-      <ListOfGoods />
+      {/* <Header />
+      <ListOfGoods /> */}
+      <Signup />
     </div>
   );
 }
