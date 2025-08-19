@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App.tsx";
 import Layout from "./Layout.tsx";
 import QueryLayout from "./QueryLayout.tsx";
+import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Layout>
       <QueryLayout>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </QueryLayout>
     </Layout>
   </StrictMode>
