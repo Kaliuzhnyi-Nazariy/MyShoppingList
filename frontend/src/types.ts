@@ -22,3 +22,5 @@ export interface IUser {
 export interface AddUser extends IUser {
   confirmPassword: string;
 }
+
+export type LoginUser = Omit<AddUser, "name" | "confirmPassword">;
