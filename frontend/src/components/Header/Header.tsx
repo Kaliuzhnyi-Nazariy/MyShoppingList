@@ -1,5 +1,6 @@
 import ChoseTheme from "./ChoseTheme";
 import ChoseLanguage from "./ChoseLanguage";
+import User from "./user/User";
 
 const Header = () => {
   return (
@@ -13,6 +14,9 @@ const Header = () => {
         </li>
         <li>
           <ChoseLanguage />
+        </li>
+        <li>
+          <User />
         </li>
       </ul>
     </header>
