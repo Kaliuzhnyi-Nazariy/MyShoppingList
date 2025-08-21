@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { themeContext } from "./Contexts/themeContext";
 import { languageContext, type Languages } from "./Contexts/languageContext";
+import UserLayout from "./UserLayout/UserLayout";
 
 type ThemeType = "light" | "dark" | "colorful";
 
@@ -18,7 +19,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <themeContext.Provider value={{ theme, setTheme }}>
       <languageContext.Provider value={{ language, setLanguage }}>
-        {children}
+        <UserLayout>{children}</UserLayout>
       </languageContext.Provider>
     </themeContext.Provider>
   );
