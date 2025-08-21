@@ -70,7 +70,7 @@ const AddModal = () => {
           className="flex flex-col items-center gap-3 min-[768px]:gap-y-6 min-[1440px]:grid min-[1440px]:grid-cols-2 min-[1440px]:grid-rows-[repeat(4,auto)] min-[1440px]:gap-x-[90px] "
           onSubmit={(e) => {
             e.preventDefault();
-            console.log(formData);
+            // console.log(formData);
             mutate(formData);
           }}
         >
@@ -78,7 +78,7 @@ const AddModal = () => {
             {title()}
           </h3>
           <InputModal
-            label="Name of Good"
+            label="Name of good"
             placeholder="Name of good"
             name="nameOfGood"
             value={formData.nameOfGood}
