@@ -78,8 +78,6 @@ const isAuthenticated = async (
   if (bearer !== "Bearer")
     return res.status(401).json({ message: "Unauthorized!" });
 
-  console.log({ token });
-
   try {
     const { id } = jwt.verify(token, SECRET_JWT as string) as jwt.JwtPayload & {
       id: number;
@@ -90,7 +88,6 @@ const isAuthenticated = async (
     const user = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
 
     const userRes = user.rows[0];
-    console.log(userRes);
 
     if (!userRes || !userRes.token || userRes.token !== token) {
       next(new Error("Unauthorized!"));
