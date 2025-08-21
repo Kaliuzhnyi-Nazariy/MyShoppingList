@@ -13,7 +13,6 @@ const cleanHeader = () => {
 
 export const getUser = async () => {
   const res = await api.get("/users");
-  console.log(res);
   return res.data;
 };
 
@@ -29,8 +28,8 @@ export const loginUser = async (data: { email: string; password: string }) => {
   return res.data;
 };
 
-export const deleteUser = async (data: { id: number }) => {
-  const res = await api.delete("/users", { data });
+export const deleteUser = async () => {
+  const res = await api.delete("/users");
   cleanHeader();
   return res.data;
 };
