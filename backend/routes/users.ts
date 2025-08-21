@@ -10,7 +10,7 @@ router.post("/users/signup", userCtrl.addUser);
 
 router.post("/users/signin", userCtrl.loginUser);
 
-router.post("/users/logout", isAuthenticated, userCtrl.deleteUser);
+router.post("/users/logout", isAuthenticated, userCtrl.logout);
 
 router.delete("/users", isAuthenticated, userCtrl.deleteUser);
 
