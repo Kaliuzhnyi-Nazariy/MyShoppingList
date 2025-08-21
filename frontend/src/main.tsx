@@ -8,12 +8,12 @@ import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Layout>
+    <BrowserRouter>
       <QueryLayout>
-        <BrowserRouter>
+        <Layout>
           <App />
-        </BrowserRouter>
+        </Layout>
       </QueryLayout>
-    </Layout>
+    </BrowserRouter>
   </StrictMode>
 );
