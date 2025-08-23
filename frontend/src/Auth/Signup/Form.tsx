@@ -1,10 +1,12 @@
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { addUser } from "../../Query/user";
-import type { AddUser } from "../../types";
+import type { AddUser, ErrorMessage, IUser } from "../../types";
 import { useNavigate } from "react-router-dom";
 import InputAuth from "../Components/InputAuth";
 import { Eye, EyeClosed } from "lucide-react";
+import { errorToast } from "../../components/Toasts/error";
+import { successToast } from "../../components/Toasts/Success";
 
 const Form = () => {
   const router = useNavigate();
@@ -36,9 +38,13 @@ const Form = () => {
 
   const { mutate, isPending } = useMutation({
     mutationFn: (formData: AddUser) => addUser(formData),
-    onSuccess() {
+    onSuccess(data: { data: IUser }) {
       clearForm();
       router("/");
+      successToast(`${data.data.name}, welcome!`);
+    },
+    onError(err: ErrorMessage) {
+      errorToast(err.response.data.message);
     },
   });
 

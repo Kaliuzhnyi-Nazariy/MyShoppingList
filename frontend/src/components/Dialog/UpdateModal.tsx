@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { languageContext } from "../../Contexts/languageContext";
-import type { ListItem, ListItemDB } from "../../types";
+import type { ErrorMessage, ListItem, ListItemDB } from "../../types";
 import InputModal from "./InputModal";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteItem, updateItem } from "../../Query/list";
+import { successToast } from "../Toasts/Success";
+import { errorToast } from "../Toasts/error";
 
 const UpdateModal = ({ data }: { data: ListItemDB }) => {
   const [formData, setFormData] = useState<ListItem>({
@@ -53,12 +55,12 @@ const UpdateModal = ({ data }: { data: ListItemDB }) => {
     mutationFn: (formData: ListItem) =>
       updateItem({ id: data ? data.id : -1, data: formData }),
     onSuccess() {
-      clearForm();
       (document.getElementById("update_modal") as HTMLDialogElement).close();
+      clearForm();
       queryClient.invalidateQueries({ queryKey: ["getGoods"] });
     },
-    onError(err: { message: string }) {
-      console.error(err.message);
+    onError(err: ErrorMessage) {
+      errorToast(err.response.data.message);
     },
   });
 
@@ -73,12 +75,13 @@ const UpdateModal = ({ data }: { data: ListItemDB }) => {
       }
     },
     onSuccess() {
-      clearForm();
+      successToast("Product deleted!");
       (document.getElementById("update_modal") as HTMLDialogElement).close();
+      clearForm();
       queryClient.invalidateQueries({ queryKey: ["getGoods"] });
     },
-    onError(err: { message: string }) {
-      console.error(err.message);
+    onError(err: ErrorMessage) {
+      errorToast(err.response.data.message);
     },
   });
 
@@ -92,13 +95,13 @@ const UpdateModal = ({ data }: { data: ListItemDB }) => {
 
   return (
     <dialog id="update_modal" className="modal">
-      <div className="modal-box w-[280px] h-[400px] bg-[var(--background)] text-[var(--text)] flex flex-col items-center justify-center py-[30px] px-[15px] min-[768px]:min-w-[575px] min-[768px]:h-[645px] min-[768px]:px-10 min-[768px]:py-[45px] min-[1440px]:min-w-[1200px] min-[1440px]:h-[365px] min-[1440px]:px-[60px] min-[1440px]:py-5  ">
+      <div className="modal-box w-[280px] h-[400px] bg-[var(--background)] text-[var(--text)] flex flex-col items-center justify-center py-[30px] px-[15px] min-[768px]:min-w-[575px] min-[768px]:h-[645px] min-[768px]:px-10 min-[768px]:py-[45px] min-[1440px]:min-w-[1200px] min-[1440px]:h-[365px] min-[1440px]:px-[60px] min-[1440px]:py-5  overflow-hidden  ">
         <form
-          className="flex flex-col items-center gap-3 min-[768px]:gap-y-6 min-[1440px]:grid min-[1440px]:grid-cols-2 min-[1440px]:grid-rows-[repeat(4,auto)] min-[1440px]:gap-x-[90px] "
+          className="flex flex-col items-center gap-3 min-[768px]:gap-y-6 min-[1440px]:grid min-[1440px]:grid-cols-2 min-[1440px]:grid-rows-[repeat(4,auto)] min-[1440px]:gap-x-[90px] overflow-hidden  "
           onSubmit={(e) => {
             e.preventDefault();
-            // console.log(formData);
             mutate(formData);
+            successToast("Product updated!");
           }}
         >
           <h3 className="text-[18px] uppercase">{title()}</h3>
@@ -140,6 +143,7 @@ const UpdateModal = ({ data }: { data: ListItemDB }) => {
                 ) : (
                   <button
                     className="bg-[var(--primary)] w-[114px] h-8 rounded-[10px] border border-transparent hover:border-[var(--accent)] transition-colors hover:bg-transparent focus:outline focus:outline-[var(--accent)] focus:bg-transparent duration-300 disabled:opacity-50 min-[768px]:w-[240px] min-[768px]:h-12 min-[768px]:text-2xl] min-[1440px]:w-[224px] min-[1440px]:h-[36px] min-[1440px]:text-[18px] min-[1440px]:col-end-1 "
+                    type="button"
                     disabled={!formData.nameOfGood || !formData.store}
                     onClick={() => deleteMutation()}
                   >

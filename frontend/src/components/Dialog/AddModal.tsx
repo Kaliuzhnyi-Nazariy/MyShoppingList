@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
 import InputModal from "./InputModal";
-import type { ListItem } from "../../types";
+import type { ErrorMessage, ListItem } from "../../types";
 import { languageContext } from "../../Contexts/languageContext";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { postItem } from "../../Query/list";
+import { successToast } from "../Toasts/Success";
+import { errorToast } from "../Toasts/error";
 
 const AddModal = () => {
   const [formData, setFormData] = useState<ListItem>({
@@ -49,9 +51,10 @@ const AddModal = () => {
         document.getElementById("add_product_modal") as HTMLDialogElement
       )?.close();
       queryClient.invalidateQueries({ queryKey: ["getGoods"] });
+      successToast("Product added!");
     },
-    onError(error: { message: string }) {
-      console.log(error);
+    onError(error: ErrorMessage) {
+      errorToast(error.response.data.message);
     },
   });
 
@@ -65,9 +68,9 @@ const AddModal = () => {
 
   return (
     <dialog id="add_product_modal" className="modal">
-      <div className="modal-box w-[280px] h-[400px] bg-[var(--background)] text-[var(--text)] flex flex-col items-center justify-center py-[30px] px-[15px] min-[768px]:min-w-[575px] min-[768px]:h-[645px] min-[768px]:px-10 min-[768px]:py-[45px] min-[1440px]:min-w-[1200px] min-[1440px]:h-[365px] min-[1440px]:px-[60px] min-[1440px]:py-5  ">
+      <div className="modal-box w-[280px] h-[400px] bg-[var(--background)] text-[var(--text)] flex flex-col items-center justify-center py-[30px] px-[15px] min-[768px]:min-w-[575px] min-[768px]:h-[645px] min-[768px]:px-10 min-[768px]:py-[45px] min-[1440px]:min-w-[1200px] min-[1440px]:h-[365px] min-[1440px]:px-[60px] min-[1440px]:py-5 overflow-hidden ">
         <form
-          className="flex flex-col items-center gap-3 min-[768px]:gap-y-6 min-[1440px]:grid min-[1440px]:grid-cols-2 min-[1440px]:grid-rows-[repeat(4,auto)] min-[1440px]:gap-x-[90px] "
+          className="flex flex-col items-center gap-3 min-[768px]:gap-y-6 min-[1440px]:grid min-[1440px]:grid-cols-2 min-[1440px]:grid-rows-[repeat(4,auto)] min-[1440px]:gap-x-[90px] overflow-hidden  "
           onSubmit={(e) => {
             e.preventDefault();
             // console.log(formData);
