@@ -1,12 +1,13 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { AddUser, IUser, RequestUser } from "../types";
-import ctrlWrapper from "../helper";
 const pool = require("../lib/db.ts");
 import jwt = require("jsonwebtoken");
 import bcrypt = require("bcryptjs");
-
 const dotenv = require("dotenv");
 const path = require("path");
+
+// import ctrlWrapper from "../helper";
+const { ctrlWrapper } = require("../helper");
 
 dotenv.config({
   path: path.resolve(__dirname, "../.env"),
@@ -56,7 +57,7 @@ const addUser = async (
   }
 
   if (password !== confirmPassword) {
-    return res.status(400).json({ message: "Bad passwords!" });
+    return res.status(400).json({ message: "Passwords not match!" });
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -100,7 +101,7 @@ const loginUser = async (
 
   const isPasswordMatch = await bcrypt.compare(password, user.rows[0].password);
 
-  if (isPasswordMatch) {
+  if (!isPasswordMatch) {
     return res.status(400).json({ message: "Email or password is wrong!" });
   }
 
@@ -119,9 +120,9 @@ const loginUser = async (
     [token, result.id]
   );
 
-  delete dataWithToken.password;
+  delete dataWithToken.rows[0].password;
 
-  return res.status(200).json({ data: dataWithToken, token });
+  return res.status(200).json({ data: dataWithToken.rows[0], token });
 };
 
 const deleteUser = async (req: Request, res: Response<Answer>) => {

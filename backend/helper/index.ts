@@ -1,3 +1,8 @@
-import ctrlWrapper from "./ctrlWrapper";
+const ctrlWrapper = require("./ctrlWrapper");
 
-export default ctrlWrapper;
+module.exports = { ctrlWrapper };
+
+// const ctrlWrapper = require("./ctrlWrapper");
+// const ErrorHandler = require("./errorHandler");
+
+// export { ctrlWrapper, ErrorHandler };

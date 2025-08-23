@@ -24,4 +24,6 @@ const ctrlWrapper = <Params = any, ResBody = any, ReqBody = any>(
   return fn;
 };
 
-export default ctrlWrapper;
+// export default ctrlWrapper;
+
+module.exports = ctrlWrapper;
