@@ -24,3 +24,7 @@ export interface AddUser extends IUser {
 }
 
 export type LoginUser = Omit<AddUser, "name" | "confirmPassword">;
+
+export interface ErrorMessage {
+  response: { data: { message: string } };
+}
