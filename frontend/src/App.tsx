@@ -6,10 +6,11 @@ import Signin from "./Auth/Signin/Signin";
 import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./Route/PrivateRoute";
 import RestrictedRoute from "./Route/RestrictedRoute";
+import NotFound from "./components/NotFound";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const chosenTheme = useContext(themeContext);
-
   return (
     <div
       className="min-h-screen w-full bg-[var(--background)] flex flex-col"
@@ -33,7 +34,9 @@ function App() {
             <PrivateRoute redirectTo="/signin" Component={<Dashboard />} />
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
+      <Toaster />
     </div>
   );
 }
