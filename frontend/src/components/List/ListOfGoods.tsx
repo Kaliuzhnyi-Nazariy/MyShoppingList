@@ -103,12 +103,12 @@ const ListOfGoods = () => {
                     setDataToUpdate(g);
                   }}
                 >
-                  <div className="flex flex-col justify-between">
+                  <div className="flex flex-col justify-between w-[80%] overflow-hidden">
                     <h2 className="max-[767px]:text-[12px] min-[768px]:text-[18px] min-[1440px]:text-[20px]">
                       {g.good}
                     </h2>
                     {g.description ? (
-                      <p className="text-[8px] min-[768px]:text-[12px] min-[1440px]:text-[16px] ">
+                      <p className="text-[8px] min-[768px]:text-[12px] min-[1440px]:text-[16px] overflow-ellipsis whitespace-nowrap overflow-hidden ">
                         {g.description}
                       </p>
                     ) : (
