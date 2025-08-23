@@ -20,16 +20,27 @@ const NotFound = () => {
     }
   };
 
+  const btn = () => {
+    switch (language) {
+      case "pl":
+        return "Strona główna";
+      case "deu":
+        return "Zur Startseite";
+      default:
+        return "Home";
+    }
+  };
+
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-center gap-4 min-[768px]:gap-6 min-[1440px]:gap-8 ">
-      <p className="text-2xl min-[768px]:text-3xl min-[1440px]:text-4xl ">
+    <div className="w-full min-h-screen flex flex-col items-center justify-center gap-4 min-[768px]:gap-6 min-[1440px]:gap-8 px-5">
+      <p className="text-2xl min-[768px]:text-3xl min-[1440px]:text-4xl mx-auto text-center ">
         {message()}
       </p>
       <Link
         to="/"
-        className="bg-[var(--accent)] min-w-[144px] px-6 py-1 rounded-[10px] border border-transparent hover:border-[var(--accent)] transition-colors hover:bg-transparent focus:outline focus:outline-[var(--accent)] focus:bg-transparent duration-300 min-[768px]:text-2xl min-[1440px]:text-[18px] min-[1440px]:px-0 uppercase text-center flex justify-center items-center"
+        className="bg-[var(--accent)] min-w-[144px] px-6 py-1 rounded-[10px] border border-transparent hover:border-[var(--accent)] transition-colors hover:bg-transparent focus:outline focus:outline-[var(--accent)] focus:bg-transparent duration-300 min-[768px]:text-2xl min-[1440px]:text-[18px] uppercase text-center flex justify-center items-center"
       >
-        Go home
+        {btn()}
       </Link>
     </div>
   );
