@@ -1,17 +1,13 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 import { AddUser, IUser, RequestUser } from "../types";
 const pool = require("../lib/db.ts");
 import jwt = require("jsonwebtoken");
 import bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
-const path = require("path");
 
-// import ctrlWrapper from "../helper";
 const { ctrlWrapper } = require("../helper");
 
-dotenv.config({
-  path: path.resolve(__dirname, "../.env"),
-});
+dotenv.config();
 
 const { SECRET_JWT } = process.env;
 
