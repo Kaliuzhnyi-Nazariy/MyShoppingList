@@ -2,12 +2,10 @@
   "name": "myshoppinglist",
   "version": "1.0.0",
   "main": "backend/server.ts",
-  "type": "commonjs",
   "scripts": {
-    "dev": "nodemon backend/server.ts",
-    "devcheck": "npx ts-node backend/server.ts",
+    "dev": "nodemon backend/server.js",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "start": "node backend/server.ts"
+    "start": "node backend/server.js"
   },
   "keywords": [],
   "author": "",
