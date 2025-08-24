@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon backend/server.ts",
     "devcheck": "npx ts-node backend/server.ts",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "node backend/server.ts"
   },
   "keywords": [],
   "author": "",
