@@ -5,7 +5,7 @@ import UserLayout from "./UserLayout/UserLayout";
 
 type ThemeType = "light" | "dark" | "colorful";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: { children: JSX.Element }) => {
   const [theme, setTheme] = useState<ThemeType>("light");
   const [language, setLanguage] = useState<Languages>("eng");
 

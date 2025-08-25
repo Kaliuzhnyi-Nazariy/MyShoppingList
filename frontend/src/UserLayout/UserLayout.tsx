@@ -1,6 +1,6 @@
 import { userContext } from "../Contexts/userContext";
 import { useState } from "react";
-const UserLayout = ({ children }: { children: React.ReactNode }) => {
+const UserLayout = ({ children }: { children: JSX.Element }) => {
   const [name, setName] = useState<string>("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
