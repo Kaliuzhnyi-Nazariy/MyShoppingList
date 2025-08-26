@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Form from "./Form.tsx";
+import Form from "./Form";
 
 const Signup = () => {
   return (
