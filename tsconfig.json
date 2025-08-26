@@ -122,21 +122,36 @@
 //   // "exclude": ["node_modules"]
 // // }
 
+// {
+//   "compilerOptions": {
+//     "target": "ES2020",
+//     "lib": ["DOM", "DOM.Iterable", "ES2020"],
+//     "jsx": "react-jsx",
+//     "module": "ESNext",
+//     "moduleResolution": "Bundler",
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "allowSyntheticDefaultImports": true,
+//     "esModuleInterop": true,
+//     "strict": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "skipLibCheck": true,
+//     "noEmit": true
+//   },
+//   "include": ["src"]
+// }
+
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "lib": ["DOM", "DOM.Iterable", "ES2020"],
-    "jsx": "react-jsx",
+    "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "allowSyntheticDefaultImports": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "Node",
     "esModuleInterop": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "noEmit": true
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["vite/client"]
   },
   "include": ["src"]
 }
