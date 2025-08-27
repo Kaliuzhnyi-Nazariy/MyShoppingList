@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "backend/server.ts",
   "scripts": {
-    "dev": "nodemon backend/server.ts",
-    "buildOld": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "build": "npm run build --prefix frontend",
-    "start": "node backend/dist/server.js"
+    "dev": "ts-node-dev backend/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/backend/index.js",
+    "frontend:build": "npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
