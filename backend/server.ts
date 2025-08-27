@@ -22,10 +22,10 @@ app.use("/api", usersRoute);
 app.use(errorRoute);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/frontend/dist")));
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.all("/{*any}", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+  app.get("*", (_req, res) => {
+    res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
   });
 }
 

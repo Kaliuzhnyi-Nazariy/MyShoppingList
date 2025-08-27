@@ -143,16 +143,14 @@
 
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "jsx": "react-jsx",
-    "moduleResolution": "Node",
+    "target": "es2020",
+    "module": "commonjs",
+    "outDir": "dist",
+    "rootDir": ".",
+    "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["vite/client"],
-    "allowImportingTsExtensions": true,
+    "skipLibCheck": true
   },
-  "include": ["src"]
+  "include": ["backend/**/*"],
+  "exclude": ["node_modules", "frontend"]
 }
