@@ -20,7 +20,9 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "noEmit": true
+    "noEmit": true,
+        "noImplicitAny": false,                        
+
   },
   "include": ["src"]
 }

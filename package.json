@@ -14,6 +14,7 @@
   "description": "",
   "dependencies": {
     "@tanstack/react-query": "^5.85.3",
+    "@types/react-router": "^5.1.20",
     "arcjet": "^1.0.0-beta.10",
     "axios": "^1.11.0",
     "bcryptjs": "^3.0.2",
