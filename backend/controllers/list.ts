@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 // import { ctrlWrapper } from "../helper";
 import { ListItem, RequestUser } from "../types";
-const pool = require("../lib/db.ts");
+const pool = require("../lib/db");
 const { ctrlWrapper } = require("../helper");
 
 const getAllList = async (req: Request, res: Response) => {
