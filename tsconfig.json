@@ -143,8 +143,8 @@
 
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": ".",
+    "outDir": "dist/backend",
+    "rootDir": "backend",
     "module": "commonjs",
     "target": "es2019",
     "esModuleInterop": true,
@@ -152,7 +152,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["backend/**/*", "frontend/src/**/*"],
+  "include": ["backend/**/*"],
   "exclude": ["node_modules", "dist"]
 }
-
