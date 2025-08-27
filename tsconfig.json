@@ -143,14 +143,16 @@
 
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "commonjs",
     "outDir": "dist",
     "rootDir": ".",
-    "strict": true,
+    "module": "commonjs",
+    "target": "es2019",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "strict": true,
     "skipLibCheck": true
   },
-  "include": ["backend/**/*"],
-  "exclude": ["node_modules", "frontend"]
+  "include": ["backend/**/*", "frontend/src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
+
