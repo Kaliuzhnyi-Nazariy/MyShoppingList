@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 import { RequestUser } from "../types";
 const pool = require("../lib/db.ts");
 

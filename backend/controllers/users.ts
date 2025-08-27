@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { AddUser, IUser, RequestUser } from "../types";
 const pool = require("../lib/db.ts");
-import jwt = require("jsonwebtoken");
-import bcrypt = require("bcryptjs");
+import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs";
 const dotenv = require("dotenv");
 
 const { ctrlWrapper } = require("../helper");

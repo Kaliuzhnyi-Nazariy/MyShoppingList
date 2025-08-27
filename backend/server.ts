@@ -1,11 +1,11 @@
-import express = require("express");
-import cors = require("cors");
-import dotenv = require("dotenv");
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
 import listRoute from "./routes/list";
 import usersRoute from "./routes/users";
 import errorRoute from "./routes/error";
 import helmet from "helmet";
-import path = require("path");
+import path from "path";
 
 dotenv.config();
 
