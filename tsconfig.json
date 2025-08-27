@@ -151,7 +151,7 @@
     "resolveJsonModule": true,
     "strict": true,
     "skipLibCheck": true,
-    "noImplicitAny": false,  
+    "noImplicitAny": true,  
     "jsx": "react-jsx",
     
     "moduleResolution": "bundler"
