@@ -19,7 +19,6 @@ app.use(helmet({ contentSecurityPolicy: false }));
 
 app.use("/api", listRoute);
 app.use("/api", usersRoute);
-app.use(errorRoute);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
@@ -28,6 +27,11 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
   });
 }
+
+app.use((req, res) => {
+  res.status(404).json({ message: "Not Found" });
+});
+app.use(errorRoute);
 
 app.listen(PORT, () => {
   console.log("server is running on port " + PORT);
