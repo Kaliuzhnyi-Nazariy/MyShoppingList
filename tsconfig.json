@@ -152,6 +152,7 @@
     "strict": true,
     "skipLibCheck": true,
     "noImplicitAny": false,  
+    "jsx": "react-jsx",
     
     "moduleResolution": "bundler"
 
