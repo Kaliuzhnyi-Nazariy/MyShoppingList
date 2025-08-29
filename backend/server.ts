@@ -6,6 +6,7 @@ import usersRoute from "./routes/users";
 import errorRoute from "./routes/error";
 import helmet from "helmet";
 import path from "path";
+const createDBs = require("./lib/createDBs");
 
 dotenv.config();
 
@@ -33,6 +34,13 @@ app.use((req, res) => {
 });
 app.use(errorRoute);
 
-app.listen(PORT, () => {
-  console.log("server is running on port " + PORT);
-});
+createDBs()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log("server is running on port " + PORT);
+    });
+  })
+  .catch((err: unknown) => {
+    console.log(err);
+    process.exit(1);
+  });
