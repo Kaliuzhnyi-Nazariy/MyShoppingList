@@ -68,7 +68,7 @@ const ListOfGoods = () => {
           </button>
         </div>
       )}
-      {data.length > 0 && (
+      {data && data.length > 0 && (
         <>
           <button
             className="ml-auto mt-4 text-[var(--text)]/50 text-[12px] min-[768px]:text-[18px] "
