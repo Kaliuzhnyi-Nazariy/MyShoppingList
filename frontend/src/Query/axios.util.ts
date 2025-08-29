@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3002/api",
+  baseURL:
+    process.env.NODE_ENV === "production" ? "" : "http://localhost:3002/api",
 });
 
 const token = localStorage.getItem("token");
