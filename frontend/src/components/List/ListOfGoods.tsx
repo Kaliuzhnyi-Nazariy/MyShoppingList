@@ -89,7 +89,8 @@ const ListOfGoods = () => {
               : "+ Dodać do listy"}
           </button>
           <ul className="w-full mt-4 flex flex-col gap-2.5 min-[768px]:gap-6 min-[1440px]:gap-10 mb-10">
-            {data.length > 0 &&
+            {data &&
+              data.length > 0 &&
               data.map((g: ListItemDB) => {
                 return (
                   <li
