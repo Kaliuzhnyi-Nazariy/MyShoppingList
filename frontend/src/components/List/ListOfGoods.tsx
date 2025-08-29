@@ -89,38 +89,39 @@ const ListOfGoods = () => {
               : "+ Dodać do listy"}
           </button>
           <ul className="w-full mt-4 flex flex-col gap-2.5 min-[768px]:gap-6 min-[1440px]:gap-10 mb-10">
-            {data.map((g: ListItemDB) => {
-              return (
-                <li
-                  className="h-10  min-w-[280px] bg-[var(--surface)] text-[var(--text)] px-2 py-1 flex justify-between min-[768px]:h-[60px] min-[1440px]:h-20 min-[768px]:py-2 min-[768px]:px-5 min-[1440px]:px-[18px] min-[1440px]:py-2.5 "
-                  key={g.id}
-                  onClick={() => {
-                    (
-                      document.getElementById(
-                        "update_modal"
-                      ) as HTMLDialogElement
-                    ).showModal();
-                    setDataToUpdate(g);
-                  }}
-                >
-                  <div className="flex flex-col justify-between w-[80%] overflow-hidden">
-                    <h2 className="max-[767px]:text-[12px] min-[768px]:text-[18px] min-[1440px]:text-[20px]">
-                      {g.good}
-                    </h2>
-                    {g.description ? (
-                      <p className="text-[8px] min-[768px]:text-[12px] min-[1440px]:text-[16px] overflow-ellipsis whitespace-nowrap overflow-hidden ">
-                        {g.description}
-                      </p>
-                    ) : (
-                      <></>
-                    )}
-                  </div>
-                  <p className="text-[8px] min-[768px]:text-[18px]">
-                    {g.store}
-                  </p>
-                </li>
-              );
-            })}
+            {data.length > 0 &&
+              data.map((g: ListItemDB) => {
+                return (
+                  <li
+                    className="h-10  min-w-[280px] bg-[var(--surface)] text-[var(--text)] px-2 py-1 flex justify-between min-[768px]:h-[60px] min-[1440px]:h-20 min-[768px]:py-2 min-[768px]:px-5 min-[1440px]:px-[18px] min-[1440px]:py-2.5 "
+                    key={g.id}
+                    onClick={() => {
+                      (
+                        document.getElementById(
+                          "update_modal"
+                        ) as HTMLDialogElement
+                      ).showModal();
+                      setDataToUpdate(g);
+                    }}
+                  >
+                    <div className="flex flex-col justify-between w-[80%] overflow-hidden">
+                      <h2 className="max-[767px]:text-[12px] min-[768px]:text-[18px] min-[1440px]:text-[20px]">
+                        {g.good}
+                      </h2>
+                      {g.description ? (
+                        <p className="text-[8px] min-[768px]:text-[12px] min-[1440px]:text-[16px] overflow-ellipsis whitespace-nowrap overflow-hidden ">
+                          {g.description}
+                        </p>
+                      ) : (
+                        <></>
+                      )}
+                    </div>
+                    <p className="text-[8px] min-[768px]:text-[18px]">
+                      {g.store}
+                    </p>
+                  </li>
+                );
+              })}
           </ul>
         </>
       )}
