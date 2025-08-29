@@ -21,7 +21,7 @@ const ListOfGoods = () => {
 
   const { language } = lContext;
 
-  const { data = [], isLoading } = useQuery({
+  const { data, isLoading } = useQuery<ListItemDB[] | undefined>({
     queryKey: ["getGoods"],
     queryFn: getAll,
   });
@@ -39,7 +39,7 @@ const ListOfGoods = () => {
 
   return (
     <div className="w-full flex flex-col flex-1 items-center px-5 min-[768px]:px-10 min-[1440px]:px-20">
-      {data.length == 0 && !isLoading && (
+      {data && data.length == 0 && !isLoading && (
         <div className=" justify-center flex flex-col flex-1 text-[var(--text)]">
           <p className="opacity-50 text-[18px] min-[768px]:text-2xl min-[1440px]:text-[28px] text-center ">
             {language == "eng"
