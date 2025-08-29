@@ -21,7 +21,7 @@ const ListOfGoods = () => {
 
   const { language } = lContext;
 
-  const { data, isLoading } = useQuery({
+  const { data = [], isLoading } = useQuery({
     queryKey: ["getGoods"],
     queryFn: getAll,
   });

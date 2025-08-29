@@ -19,7 +19,7 @@ const PrivateRoute = ({
 }) => {
   const uContext = useContext(userContext);
 
-  const { data, isPending } = useQuery({
+  const { data = [], isPending } = useQuery({
     queryKey: ["getUserData"],
     queryFn: getUser,
     retry: false,
