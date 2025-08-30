@@ -12,14 +12,14 @@ import { userContext } from "../Contexts/userContext";
 
 const PrivateRoute = ({
   Component,
-  redirectTo = "/",
+  redirectTo = "/signin",
 }: {
   Component: React.ReactNode;
   redirectTo?: string;
 }) => {
   const uContext = useContext(userContext);
 
-  const { data = [], isPending } = useQuery({
+  const { data, isPending } = useQuery({
     queryKey: ["getUserData"],
     queryFn: getUser,
     retry: false,
@@ -43,6 +43,8 @@ const PrivateRoute = ({
     }
   }, [data, uContext]);
   if (isPending) return "loading";
+
+  console.log(redirectTo);
 
   return data ? Component : <Navigate to={redirectTo} replace />;
 };
