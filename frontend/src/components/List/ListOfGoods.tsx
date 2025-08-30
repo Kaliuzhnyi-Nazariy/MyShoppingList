@@ -24,6 +24,10 @@ const ListOfGoods = () => {
   const { data, isLoading } = useQuery<ListItemDB[] | undefined>({
     queryKey: ["getGoods"],
     queryFn: getAll,
+    retry: false,
+    refetchOnMount: true,
+    throwOnError: false,
+    refetchOnWindowFocus: false,
   });
 
   useEffect(() => {
