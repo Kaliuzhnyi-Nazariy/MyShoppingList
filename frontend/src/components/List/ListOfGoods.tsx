@@ -89,9 +89,9 @@ const ListOfGoods = () => {
               : "+ Dodać do listy"}
           </button>
           <ul className="w-full mt-4 flex flex-col gap-2.5 min-[768px]:gap-6 min-[1440px]:gap-10 mb-10">
-            {data &&
+            {Array.isArray(data) &&
               data.length > 0 &&
-              data.map((g: ListItemDB) => {
+              data?.map((g: ListItemDB) => {
                 return (
                   <li
                     className="h-10  min-w-[280px] bg-[var(--surface)] text-[var(--text)] px-2 py-1 flex justify-between min-[768px]:h-[60px] min-[1440px]:h-20 min-[768px]:py-2 min-[768px]:px-5 min-[1440px]:px-[18px] min-[1440px]:py-2.5 "
