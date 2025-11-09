@@ -45,6 +45,13 @@ app.use(errorRoute);
 //     process.exit(1);
 //   });
 
-app.listen(PORT, () => {
-  createDBs();
-});
+createDBs()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log("server is running on port " + PORT);
+    });
+  })
+  .catch((err: unknown) => {
+    console.log(err);
+    process.exit(1);
+  });
