@@ -1,3 +1,4 @@
+/* eslint-disable no-constant-condition */
 import { useContext, useState } from "react";
 import InputModal from "./InputModal";
 import type { ErrorMessage, ListItem } from "../../types";
@@ -70,7 +71,7 @@ const AddModal = () => {
     <dialog id="add_product_modal" className="modal">
       <div className="modal-box w-[280px] h-[400px] bg-[var(--background)] text-[var(--text)] flex flex-col items-center justify-center py-[30px] px-[15px] min-[768px]:min-w-[575px] min-[768px]:h-[645px] min-[768px]:px-10 min-[768px]:py-[45px] min-[1440px]:min-w-[1200px] min-[1440px]:h-[365px] min-[1440px]:px-[60px] min-[1440px]:py-5 overflow-hidden ">
         <form
-          className="flex flex-col items-center gap-3 min-[768px]:gap-y-6 min-[1440px]:grid min-[1440px]:grid-cols-2 min-[1440px]:grid-rows-[repeat(4,auto)] min-[1440px]:gap-x-[90px] overflow-hidden  "
+          className="flex flex-col items-center gap-3 min-[768px]:gap-y-6 min-[1440px]:grid min-[1440px]:grid-cols-2 min-[1440px]:grid-rows-[repeat(4,auto)] min-[1440px]:gap-x-[90px] overflow-hidden px-1  "
           onSubmit={(e) => {
             e.preventDefault();
             // console.log(formData);
@@ -109,7 +110,7 @@ const AddModal = () => {
             language={language}
           />
           {isPending ? (
-            <div className="loading loading-spinner loading-sm min-[1440px]:col-span-2 min-[1440px]:row-3 "></div>
+            <div className="loading loading-spinner loading-sm min-[1440px]:col-span-2 min-[1440px]:row-4 min-[1440px]:justify-self-center "></div>
           ) : (
             <button
               className="bg-[var(--accent)] px-6 py-1 rounded-[10px] border border-transparent hover:border-[var(--accent)] transition-colors hover:bg-transparent focus:outline focus:outline-[var(--accent)] focus:bg-transparent duration-300 mt-1 disabled:opacity-50 min-[768px]:mt-2 min-[768px]:text-2xl min-[768px]:h-12 min-[768px]:w-[310px] min-[1440px]:col-span-2 min-[1440px]:justify-self-center min-[1440px]:self-center min-[1440px]:m-0 min-[1440px]:row-4 min-[1440px]:w-[224px] min-[1440px]:h-[36px] min-[1440px]:text-[18px] min-[1440px]:px-0 "
