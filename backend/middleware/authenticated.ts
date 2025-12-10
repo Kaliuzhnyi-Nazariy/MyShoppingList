@@ -37,8 +37,10 @@ const isAuthenticated = async (
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.log(error.message);
+      return next(error);
     } else {
       console.log(error);
+      return next(error);
     }
   }
 };

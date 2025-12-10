@@ -15,14 +15,14 @@ const pool = new Pool({
   // database: process.env.PG_DATABASE,
   // port: Number(process.env.DB_PORT),
 
-  // host: process.env.DB_HOST,
-  // user: process.env.DB_USER,
-  // password: process.env.DB_PASSWORD,
-  // database: process.env.DB_DATABASE,
-  // port: Number(process.env.DB_PORT),
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  port: Number(process.env.DB_PORT),
 
-  connectionString: process.env.PG_EXTERNAL,
-  ssl: { rejectUnauthorized: false },
+  // connectionString: process.env.PG_EXTERNAL,
+  // ssl: { rejectUnauthorized: false },
 });
 
 module.exports = pool;
