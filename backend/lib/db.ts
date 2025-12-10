@@ -20,11 +20,11 @@ const pool = new Pool({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
   port: Number(process.env.DB_PORT),
-  ssl: true,
+  // ssl: true,
 
   // connectionString: process.env.PG_EXTERNAL,
   // connectionString: process.env.DB_LINK,
-  // ssl: { rejectUnauthorized: false },
+  ssl: { rejectUnauthorized: false },
 });
 
 module.exports = pool;
