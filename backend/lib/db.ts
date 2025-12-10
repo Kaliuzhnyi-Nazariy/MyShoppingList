@@ -15,7 +15,7 @@ const pool = new Pool({
   // database: process.env.PG_DATABASE,
   // port: Number(process.env.DB_PORT),
 
-  host: process.env.PG_HOSTNAME,
+  host: process.env.DB_HOSTNAME,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
